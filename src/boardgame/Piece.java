@@ -1,0 +1,20 @@
+package boardgame;
+
+/**
+ *
+ * @author mpbc3
+ */
+public class Piece {
+    protected Position position;
+    private Board board;
+
+    public Piece(Board board) {
+        this.position = null;
+        this.board = board;
+    }
+
+    protected Board getBoard() {
+        return board;
+    }
+    
+}
