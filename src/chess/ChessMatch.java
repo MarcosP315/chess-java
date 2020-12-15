@@ -34,8 +34,12 @@ public class ChessMatch {
      * tabuleiro.
      */
     private void initialSetup() {
-        board.placePiece(new Rook (Color.WHITE, this.board), new Position(2,1));
-        board.placePiece(new King (Color.BLACK, this.board), new Position(4,4));
-        board.placePiece(new King (Color.WHITE, this.board), new Position(7,4));
+        placeNewPiece('b', 6, new Rook (Color.WHITE, this.board));
+        placeNewPiece('e', 8, new King (Color.BLACK, this.board));
+        placeNewPiece('e', 1, new King (Color.WHITE, this.board));
+    }
+    
+    private void placeNewPiece(char column, int row, ChessPiece piece){
+        board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
 }
