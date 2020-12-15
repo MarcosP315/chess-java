@@ -14,11 +14,10 @@ import java.util.Scanner;
 public class Program {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         ChessMatch chessMatch = new ChessMatch();
-
-        try {
-            while (true) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            try {
                 UI.clearScreen();
                 UI.printBoard(chessMatch.getPieces());
                 System.out.println();
@@ -28,13 +27,11 @@ public class Program {
                 ChessPosition target = UI.readChessPosition(sc);
 
                 ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
+            } catch (ChessException | InputMismatchException ex) {
+                System.out.println(ex.getMessage());
+                sc = new Scanner(System.in);
+                sc.nextLine();
             }
-        } catch (ChessException ex) {
-            System.out.println(ex.getMessage());
-            sc.nextLine();
-        } catch (InputMismatchException ex){ 
-            System.out.println(ex.getMessage());
-            sc.nextLine();
         }
     }
 

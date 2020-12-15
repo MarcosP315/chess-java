@@ -66,6 +66,9 @@ public class ChessMatch {
         if (!board.thereIsAPiece(source)) {
             throw new ChessException("Não há peça na posição de origem.");
         }
+        if (!board.piece(source).isThereAnyPosibleMove()) {
+            throw new ChessException("Não existe movimentos possíveis para a peça escolhida.");
+        }
     }
 
     private Piece makeMove(Position source, Position target) {
