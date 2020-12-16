@@ -21,7 +21,7 @@ public class Program {
         Scanner sc = new Scanner(System.in); 
         List<ChessPiece> captured = new ArrayList();
         
-        while (true) {
+        while (!chessMatch.getCheckMate()) {
             try {
 //                sc = new Scanner(System.in);
                 UI.clearScreen();
@@ -42,10 +42,12 @@ public class Program {
 
             } catch (ChessException | InputMismatchException ex) {
                 System.out.println(ex.getMessage());
-//                sc = new Scanner(System.in);
                 sc.nextLine();
             }
         }
+        
+        UI.clearScreen();
+        UI.printMatch(chessMatch, captured);
     }
 
 }
