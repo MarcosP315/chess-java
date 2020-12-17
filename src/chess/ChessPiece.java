@@ -9,6 +9,7 @@ import boardgame.Position;
  * @author mpbc3
  */
 public abstract class ChessPiece extends Piece{
+
     private Color color;
     private int moveCount;
 
