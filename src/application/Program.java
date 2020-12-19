@@ -39,7 +39,12 @@ public class Program {
                 ChessPosition target = UI.readChessPosition(sc);
 
                 Optional.ofNullable(chessMatch.performChessMove(source, target)).ifPresent(p -> captured.add(p));
-
+                
+                if (chessMatch.getPromoted() != null) {
+                    System.out.print("Digite a peça para promoção (B, N, R ou Q): ");
+                    chessMatch.replacePromotedPiece(sc.nextLine());
+                }
+                
             } catch (ChessException | InputMismatchException ex) {
                 System.out.println(ex.getMessage());
                 sc.nextLine();
